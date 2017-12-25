@@ -1,0 +1,2 @@
+ <footer class="b-footer">
+</footer>

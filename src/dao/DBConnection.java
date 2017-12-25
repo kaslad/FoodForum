@@ -16,7 +16,7 @@ public class DBConnection {
             }
             try {
                 conn = DriverManager.getConnection(
-                        "jdbc:postgresql://localhost:5432/food_stories",
+                        "jdbc:postgresql://localhost:5432/foodForum",
                         "postgres",
                         "postgres"
                 );

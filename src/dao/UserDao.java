@@ -204,24 +204,4 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) throws IOException {
-        URL url = null;
-        BufferedInputStream bis = null;
-        url = new URL("your url...");
-        bis = new BufferedInputStream(url.openStream());
-
-
-
-        FileOutputStream fis = null;
-        fis = new FileOutputStream("file path");
-
-        byte[] buffer = new byte[1024];
-        int count = 0;
-        while ((count = bis.read(buffer, 0, 1024)) != -1) {
-            fis.write(buffer, 0, count);
-        }
-        fis.close();
-        bis.close();
-    }
 }

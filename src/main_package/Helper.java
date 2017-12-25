@@ -7,17 +7,14 @@ import dao.UserDao;
 import entities.Post;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Helper {
 
     public static final String ROOT_OF_PROJECT = "/Users/Vladislav/IdeaProjects/foodForum";
     public static final String CURRENT_USER_KEY = "current_user";
     //public static final String ROOT_OF_SERVER = "C:/apache-tomcat-9.0.0.M26";
-    public static final String STORAGE_ROOT = "";
+    public static final String STORAGE_ROOT = "/Users/Vladislav/pictures";
 
     public static Calendar toCalendar(Date date){
         Calendar cal = Calendar.getInstance();
@@ -34,6 +31,7 @@ public class Helper {
         post.setPhotos(PostDao.getPhotoByPost(post));
         return post;
     }
+
 
     public static void parseTags(String tags, List<String> tagList) {
 
@@ -53,6 +51,7 @@ public class Helper {
         OutputStream out = null;
         try {
             out = new FileOutputStream(new File(STORAGE_ROOT + "/" + filePath));
+
             final byte[] bytes = new byte[1024];
             int read;
             while ((read = in.read(bytes)) != -1) {
@@ -77,6 +76,14 @@ public class Helper {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        parseTags("#tag", list);
+        for(String s : list){
+            System.out.println(s);
         }
     }
 }

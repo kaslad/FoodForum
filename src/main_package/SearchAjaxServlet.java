@@ -27,16 +27,30 @@ public class SearchAjaxServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pattern = req.getParameter("pattern");
         String tags = req.getParameter("tags");
-        //System.out.println("pattern = " + pattern);
-        String res = "";
         List<String> tagList = new ArrayList<>();
-
-        if (tags == null || tags.equals("")) {
-            System.out.println("TAGS IS EMPTY");
-
-        } else {
-            Helper.parseTags(tags, tagList);
+        boolean check = true;
+        if(pattern == null){
+            pattern = "";
         }
+        for(int i = 0; i < pattern.length(); i++){
+            if(pattern.charAt(i) == ' '){
+            }else if (pattern.charAt(i) == '#'){
+                check = false;
+                break;
+            }else{
+                break;
+            }
+
+        }
+        if(!check) {
+            Helper.parseTags(pattern, tagList);
+            pattern = "";
+        }
+        System.out.println("pattern = " + pattern);
+        String res = "";
+
+
+
         System.out.println("TAGS : ");
         for (String s : tagList) {
             System.out.println(s);
@@ -44,6 +58,8 @@ public class SearchAjaxServlet extends HttpServlet {
         HashMap<String, Object> map = new HashMap<>();
         List<Post> posts = PostDao.search(pattern, tagList);
         for (Post post : posts) {
+            post.setComments(CommentDao.getCommentsByPost(post));
+
             System.out.println("post = " + post);
         }
         map.put("posts", posts);

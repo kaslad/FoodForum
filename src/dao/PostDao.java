@@ -217,7 +217,7 @@ SELECT P6.post_id, P6._text, P6._date, P6.likes, P6.user_id, P6.login, P6.photo 
                             "    VALUES\n" +
                             "      (?, ?, ?)"
             );
-            Date date = Helper.toDate(post.getDate());
+            java.sql.Date date = Helper.toDate(post.getDate());
             ps.setString(1, post.getText());
             ps.setDate(2, date);
             ps.setInt(3, post.getLikes());
@@ -262,7 +262,7 @@ SELECT P6.post_id, P6._text, P6._date, P6.likes, P6.user_id, P6.login, P6.photo 
         Connection conn = DBConnection.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement(
-                    "SELECT \"post_photo\".photo FROM \"post_photo\"\n" +
+                    "SELECT \"post_photo\".photo_id FROM \"post_photo\"\n" +
                             "WHERE \"post_photo\".post_id = ?"
             );
             ps.setInt(1, post.getId());
@@ -282,11 +282,11 @@ SELECT P6.post_id, P6._text, P6._date, P6.likes, P6.user_id, P6.login, P6.photo 
         Connection conn = DBConnection.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement(
-                    "INSERT INTO \"post_photo\" (post_id, photo) VALUES\n" +
+                    "INSERT INTO \"post_photo\" (post_id, photo_id) VALUES\n" +
                             "(?, ?)"
             );
             ps.setInt(1, post.getId());
-            ps.setString(2,photo);
+            ps.setString(2, photo);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

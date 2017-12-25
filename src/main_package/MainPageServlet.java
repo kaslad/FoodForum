@@ -1,7 +1,10 @@
 package main_package;
 
+import dao.CommentDao;
 import dao.PostDao;
 import dao.TagDao;
+import entities.Comment;
+import entities.Post;
 import entities.Tag;
 import entities.User;
 import freemarker.template.TemplateException;
@@ -27,13 +30,31 @@ public class MainPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HashMap<String, Object> map = new HashMap<>();
+        map.put("user", req.getSession().getAttribute(Helper.CURRENT_USER_KEY));
+        try {
+            Render.render(resp, map, "main.ftl");
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
+        /*HashMap<String, Object> map = new HashMap<>();
         Tag active = new Tag(-1, "kejfasdasfdasdfadfasdfasdfasdfafasd");
         List<String> tagsSearch = new ArrayList<>();
         if (req.getParameterMap().containsKey("tag")) {
             active = TagDao.getTagByName(req.getParameter("tag"));
             tagsSearch.add(active.getTag());
         }
-        map.put("posts", PostDao.search("",tagsSearch));
+
+        //without tags
+        List<Post> postList = PostDao.search("", tagsSearch);
+
+        if (postList != null) {
+            for(Post e: postList){
+                e.setComments(CommentDao.getCommentsByPost(e));
+                System.out.println(e.getComments().size());
+            }
+        }
+
+        map.put("posts", postList);
         map.put("user", (User)req.getSession().getAttribute(Helper.CURRENT_USER_KEY));
         map.put("active_tag", active);
         List<Tag> tags = TagDao.getPopularTags();
@@ -44,5 +65,6 @@ public class MainPageServlet extends HttpServlet {
         } catch (TemplateException e) {
             e.printStackTrace();
         }
+        */
     }
 }

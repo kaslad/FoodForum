@@ -1,5 +1,6 @@
 package main_package;
 
+import dao.CommentDao;
 import dao.PostDao;
 import dao.UserDao;
 import entities.Post;
@@ -24,6 +25,13 @@ public class MyStoriesServlet extends HttpServlet {
         map.put("user", user);
         map.put("c_user", req.getSession().getAttribute(Helper.CURRENT_USER_KEY));
         List<Post> posts = PostDao.getUserPost(user);
+        if (posts != null) {
+            for (Post e : posts) {
+                e.setComments(CommentDao.getCommentsByPost(e));
+                System.out.println(e.getComments().size());
+            }
+        }
+
         map.put("posts", posts);
         try {
             Render.render(resp, map, "user.ftl");

@@ -32,7 +32,7 @@ public class MainPageServlet extends HttpServlet {
         HashMap<String, Object> map = new HashMap<>();
         map.put("user", req.getSession().getAttribute(Helper.CURRENT_USER_KEY));
         try {
-            Render.render(resp, map, "main.ftl");
+            Render.render(resp, map, "main2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

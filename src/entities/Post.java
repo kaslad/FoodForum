@@ -18,6 +18,7 @@ public class Post {
         this.id = id;
         this.text = text;
         this.date = date;
+
         this.likes = likes;
         tags = new ArrayList<>();
         comments = new ArrayList<>();

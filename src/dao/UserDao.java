@@ -3,6 +3,7 @@ package dao;
 import com.sun.org.apache.regexp.internal.RE;
 import entities.Post;
 import entities.User;
+import main_package.Hash;
 import main_package.Helper;
 
 import java.io.BufferedInputStream;
@@ -203,5 +204,9 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        Hash.getMd5Apache("");
     }
 }

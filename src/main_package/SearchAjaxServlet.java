@@ -64,7 +64,7 @@ public class SearchAjaxServlet extends HttpServlet {
         }
         map.put("posts", posts);
         try {
-            res = Render.render(map, "post_body.ftl");
+            res = Render.render(map, "post_body2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

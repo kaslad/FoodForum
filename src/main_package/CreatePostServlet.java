@@ -96,7 +96,7 @@ public class CreatePostServlet extends HttpServlet {
         map.put("user", user);
         map.put("post", dummy);
         try {
-            Render.render(resp, map, "create_post.ftl");
+            Render.render(resp, map, "create.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

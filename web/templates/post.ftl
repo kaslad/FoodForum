@@ -16,8 +16,7 @@
 <body>
 <section>
     <div class="container">
-
-
+        <#include "base_nav.ftl">
         <div class="box image">
             <div class="box-header">
                 <h3><a href=""><img src="/load/${post.author.photo}" alt=""/>${post.author.login}</a>

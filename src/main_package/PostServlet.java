@@ -21,7 +21,10 @@ public class PostServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         Map<String, String[]> map = req.getParameterMap();
+
         if (!map.containsKey("id")) {
             resp.sendRedirect("/profile");
             return;
@@ -33,11 +36,12 @@ public class PostServlet extends HttpServlet {
             System.out.println("comment.getAuthor() = " + comment.getAuthor());
         }
         HashMap<String, Object> front = new HashMap<>();
+
         front.put("post", post);
         front.put("user", ((User)req.getSession().getAttribute(CURRENT_USER_KEY)));
         System.out.println("POST = " + post);
         try {
-            Render.render(resp, front, "/post.ftl");
+            Render.render(resp, front, "/post2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

@@ -25,6 +25,8 @@ public class CreatePostServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         System.out.println("I AM IN POST OF CREATE");
         List<String> tagList = new ArrayList<>();
         String tags = req.getParameter("tags");
@@ -96,7 +98,7 @@ public class CreatePostServlet extends HttpServlet {
         map.put("user", user);
         map.put("post", dummy);
         try {
-            Render.render(resp, map, "create.ftl");
+            Render.render(resp, map, "create_post2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

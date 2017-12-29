@@ -24,7 +24,9 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute(CURRENT_USER_KEY);
+        req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
+        System.out.println("name " + name);
         String login = req.getParameter("login");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
@@ -75,9 +77,11 @@ public class ProfileServlet extends HttpServlet {
             User user = (User) req.getSession().getAttribute(CURRENT_USER_KEY);
             System.out.println("USER IS === " + user);
             map.put("user", user);
-            Render.render(resp, map, "/profile.ftl");
+            Render.render(resp, map, "/profile2.ftl");
+
         } catch (TemplateException e) {
             e.printStackTrace();
         }
+        resp.setCharacterEncoding("utf-8");
     }
 }

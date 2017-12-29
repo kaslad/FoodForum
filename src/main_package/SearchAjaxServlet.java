@@ -25,6 +25,8 @@ public class SearchAjaxServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         String pattern = req.getParameter("pattern");
         String tags = req.getParameter("tags");
         List<String> tagList = new ArrayList<>();
@@ -77,8 +79,10 @@ public class SearchAjaxServlet extends HttpServlet {
 //        System.out.println("res = " + res);
 //        System.out.println("jsonObject = " + jsonObject);
         resp.setContentType("text/json");
+        resp.setCharacterEncoding("UTF-8");
         resp.getWriter().print(jsonObject.toString());
         resp.getWriter().close();
+
     }
 
     }

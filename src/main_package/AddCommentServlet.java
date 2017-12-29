@@ -24,6 +24,8 @@ public class AddCommentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         String text = req.getParameter("text");
 
         int id = Integer.parseInt(req.getParameter("post_id"));

@@ -24,11 +24,14 @@ public class MainPageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/search");
+        //resp.sendRedirect("/search");
+        req.setCharacterEncoding("UTF-8");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         HashMap<String, Object> map = new HashMap<>();
         map.put("user", req.getSession().getAttribute(Helper.CURRENT_USER_KEY));
         try {

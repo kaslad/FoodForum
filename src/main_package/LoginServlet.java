@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         Map<String, String[]> map = req.getParameterMap();
         User user = null;
@@ -56,7 +57,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            Render.render(resp, new HashMap<>(), "/login.ftl");
+            Render.render(resp, new HashMap<>(), "/login2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

@@ -1,10 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Stories</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/create_post.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/mystories.css">
 
-<div class="b-search hid" id="ibs">
+
+
+    <!--<script defer src="js/post.js"></script      >-->
+    <link href="js/jquery-ui-1.12.1/jquery-ui.css" type="text/css" rel="stylesheet">
+
+    <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+
+<div class="b-search hid" id="ibss">
     <div class="b-search-grid">
         <div class="search-row">
             <div class="input-gr">
-                <input type="text" class="search__inp" placeholder="Поиск по историям, ключевые слова или #tag"
-                       id="pattern" name="pattern">
+                <input type="text" class="search__inp" placeholder="Поиск по историям или #tag" id="pattern"
+                       name="pattern">
                 <!--
                     Здесь вроде нужно кнопку ссылкой обернуть ты сделай я если че потом поправлю
                     И вообще любые замечания пиши я завтра буду править.
@@ -16,7 +39,7 @@
                     но в целом: "Итак сойдет". Как поговаривал "Вовка в Тридевятом Царстве".
                 -->
 
-                <button class="search__btn" type="submit" onclick="do_search()">
+                <button class="search__btn" type="submit" id="searching" >
                     <i class="fa fa-search"></i>
                 </button>
             </div>
@@ -24,7 +47,7 @@
     </div>
 </div>
 
-<div class="b-ham-nav hid" id="ibh">
+<div class="b-ham-nav hid" id="ibhh">
     <div class="ham-grid">
         <ul class="b-ham-ul">
             <li class="b-ham-ul-item" id="hamclose">
@@ -34,12 +57,12 @@
                 </a>
             </li>
             <li class="b-ham-ul-item">
-                <a href=/main" class="b-ham-ul-item__link">
+                <a href="/main" class="b-ham-ul-item__link">
                     Главная
                 </a>
             </li>
             <li class="b-ham-ul-item">
-                <a href="/my_stories" class="b-ham-ul-item__link">
+                <a href="/my_stories/?id=${user.id}" class="b-ham-ul-item__link">
                     Мои истории
                 </a>
             </li>
@@ -58,7 +81,7 @@
                     О сайте
                 </a>
             </li>
-            <li class="b-ham-ul-item" id="btnsearch2">
+            <li class="b-ham-ul-item" id="btnsear">
                 <a href="#" class="b-ham-ul-item__link">
                     <span class="fa fa-search"></span>
                     Поиск
@@ -79,7 +102,7 @@
 </div>
 </div>
 
-
+<div class="m-fix"></div>
 <header class="b-header">
     <div class="b-header-grid">
         <div class="b-logo">
@@ -88,7 +111,7 @@
             </a>
         </div>
         <nav class="b-nav">
-            <ul class="b-nav-ul">
+            <ul class="b-nav-ul" id="navigataion">
                 <li class="b-nav-ul-item">
                     <a href="/main" class="b-nav-ul-item__link active-item">
                         Главная
@@ -114,9 +137,9 @@
                         О сайте
                     </a>
                 </li>
-                <li class="b-nav-ul-item" id="btnsearch">
+                <li class="b-nav-ul-item" id="btnsear" onclick="document.location.href='/main'">
                     <a href="#" class="b-nav-ul-item__link">
-                        <span class="fa fa-search" id="i-search"></span>
+                        <span class="fa fa-search" id="i-search"  ></span>
                     </a>
                 </li>
             </ul>
@@ -137,8 +160,13 @@
         </div>
         <div class="btn-hamburger" id="btnham">
             <span class="fa fa-bars">
-
             </span>
         </div>
     </div>
 </header>
+<main class="b-main">
+    <h1 hidden>Food Stroies это сайт о том что объединяет всех людей, будь то деловой обед в ресторане тихий семейный
+        ужин или вечер с друзьями за коктейлем. О еде!</h1>
+    <!--     Конец header tfl      -->
+
+

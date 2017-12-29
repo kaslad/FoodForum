@@ -20,6 +20,8 @@ import java.util.List;
 public class MyStoriesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         HashMap<String, Object> map = new HashMap<>();
         User user = UserDao.getUserById(Integer.parseInt(req.getParameter("id")));
         map.put("user", user);
@@ -34,7 +36,7 @@ public class MyStoriesServlet extends HttpServlet {
 
         map.put("posts", posts);
         try {
-            Render.render(resp, map, "user.ftl");
+            Render.render(resp, map, "mystories2.ftl");
         } catch (TemplateException e) {
             e.printStackTrace();
         }

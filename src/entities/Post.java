@@ -1,13 +1,21 @@
 package entities;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Post {
     private int id;
     private String text;
     private Calendar date;
+    private String time;
+    private String month;
+    private byte chislo;
+
+
     private User author;
     private int likes;
     private List<String> photos;
@@ -18,7 +26,10 @@ public class Post {
         this.id = id;
         this.text = text;
         this.date = date;
+        System.out.println("post");
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 
+        this.time = format1.format(date.getTime());
         this.likes = likes;
         tags = new ArrayList<>();
         comments = new ArrayList<>();
@@ -32,6 +43,16 @@ public class Post {
 
     public int getId() {
         return id;
+    }
+    public String getTime(){
+        return  time;
+    }
+    public String tagsToString(){
+        StringBuilder sb = new StringBuilder();
+        for(Tag tag: tags){
+            sb.append("#" + tag.getTag() + " ");
+        }
+        return sb.toString();
     }
 
     public void setId(int id) {

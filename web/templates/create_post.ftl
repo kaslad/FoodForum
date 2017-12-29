@@ -14,9 +14,10 @@
     <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-<#include "base_nav.ftl">
 <section>
     <div class="container">
+
+
         <div class="box image">
             <div class="box-header">
                 <h3><a href=""><img src="/load/${post.author.photo}" alt="" />${post.author.login}</a>
@@ -178,9 +179,7 @@
         </div>
     </div>
 </section>
-<#include "base_footer.ftl">
 </body>
-
 <script type="text/javascript">
     function inc_likes(button_idk){
         console.log(1);

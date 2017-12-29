@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class AboutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("user", req.getSession().getAttribute(Helper.CURRENT_USER_KEY));

@@ -38,7 +38,7 @@
         <section class="login-form-wrap">
     <form class="login-form" action="#">
         <label>
-            <input type="text" name="login" required placeholder="Логин">
+            <input type="text" name="login" required placeholder="Логин" pattern="[A-Za-z0-9]{6,}">
         </label>
         <label>
             <input type="text" name="name" required placeholder="Имя">
@@ -48,7 +48,9 @@
         </label>
 
         <label>
-            <input type="password" name="password" required placeholder="Пароль">
+            <input type="password" name="password" required placeholder="Пароль"
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Пароль не может быть короче восьми символов и должен содержать хотя бы одну цифру, одну маленькую и одну большую латинскую букву." >
         </label>
         <input type="submit" value="Регистрация">
         <h5>Уже зарегистрированы? <a href="#" id="log-button">Войти</a></h5>

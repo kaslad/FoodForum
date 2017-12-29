@@ -14,7 +14,7 @@ public class ConfigSingleton {
             cfg = new Configuration();
             cfg.setServletContextForTemplateLoading(
                     sc,
-                    "/WEB-INF/templates"
+                    "/templates"
             );
             cfg.setTemplateExceptionHandler(
                     TemplateExceptionHandler.HTML_DEBUG_HANDLER

@@ -14,7 +14,7 @@ public class Helper {
     public static final String ROOT_OF_PROJECT = "/Users/Vladislav/IdeaProjects/foodForum";
     public static final String CURRENT_USER_KEY = "current_user";
     //public static final String ROOT_OF_SERVER = "C:/apache-tomcat-9.0.0.M26";
-    public static final String STORAGE_ROOT = "/Users/Vladislav/pictures";
+    public static final String STORAGE_ROOT = "/Users/Vladislav/IdeaProjects/foodForum/web/templates/pictures";
 
     public static Calendar toCalendar(Date date){
         Calendar cal = Calendar.getInstance();

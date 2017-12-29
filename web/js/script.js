@@ -10,12 +10,13 @@
 document.addEventListener("click", clManage);
 
 function clManage(event){
-
+    console.log("123");
     var targ=event.target;
 
     while(targ!=document.body)
     {
         if(targ.parentNode.classList.contains("input-gr")) return;
+
         else if(targ==document.getElementById("btnsearch") || targ==ibs || targ==document.getElementById("btnsearch2")){
             hide(ibs);
             break;
@@ -31,5 +32,7 @@ function clManage(event){
 function hide(el){
     el.classList.toggle("hid");
 }
+
+
 
 

@@ -1,0 +1,104 @@
+.b-profile {
+    display: block;
+    width: 70%;
+    margin: 10px auto;
+}
+
+.b-profile * {
+    color: #2c465a;
+}
+
+.b-profile-img {
+    display: block;
+    margin: 10px auto;
+    width: 10vw;
+    height: 10vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 100%;
+    border: 1px solid #2c465a;
+}
+
+fieldset {
+    padding: 10px;
+}
+
+.dis-def {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    padding-left: 5px;
+}
+
+.input-gr {
+    width: 100%;
+    margin: 5px auto;
+    border: 1px solid gray;
+}
+
+.input-gr.input-gr.input-gr label {
+    cursor: pointer;
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+    padding: 5px 10px;
+    border-right: 1px solid gray;
+    background-color:#2c465a;
+}
+
+.input-gr label span {
+    color: #fff;
+}
+
+.input-gr.input-gr.input-gr.input-gr label:hover {
+    background-color: #fea100;
+}
+
+.b-e-post__submit {
+    margin: 10px auto;
+}
+
+@media screen and (min-device-width: 1440px) and (min-width: 1440px) {
+    .b-profile {
+        width: 40%;
+    }
+}
+
+@media screen and (max-device-width: 768px) and (max-width: 768px){
+    .b-profile {
+        width: 80%;
+    }
+    .input-gr span.l-text {
+        display: none;
+    }
+
+    .input-gr span.fa {
+        display: block;
+    }
+    .b-profile-img {
+        width: 15vw;
+        height: 15vw;
+    }
+}
+
+@media screen and (max-device-width: 500px) and (max-width: 500px) {
+    .dis-def {
+        max-width: 70% !important;
+    }
+}
+
+@media screen and (max-device-width: 425px) and (max-width: 425px) {
+    .b-profile-img {
+        width: 20vw;
+        height: 20vw;
+    }
+}
+
+@media screen and (max-device-width: 320px) and (max-width: 320px) {
+    .b-profile {
+        width: 90%;
+    }
+}
+
